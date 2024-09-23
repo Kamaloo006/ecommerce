@@ -8,4 +8,12 @@ import '@fortawesome/fontawesome-free/js/all.min'
 
 document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((item) => new bootstrap.Tooltip(item));
 
-console.log("السلام عليكم ")
+let addToCartBtns = document.querySelectorAll(".add-to-cart-btn");
+
+addToCartBtns.forEach((btn) => {
+    btn.addEventListener('click', function () {
+        alert("تم إضافة المنتج للعربة")
+    })
+})
+
+document.querySelector('#fullYear').innerHTML = new Date().getFullYear();

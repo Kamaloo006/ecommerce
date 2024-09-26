@@ -752,6 +752,10 @@ body {
     #footer-nav .footer-logo {
         margin-bottom: 30px;
     }
+
+    .suggestions img {
+        margin: auto;
+    }
 }
 
 @media (max-width:575.90px) {

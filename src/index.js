@@ -28,4 +28,11 @@ document.querySelectorAll(".color-option input[type='radio']").forEach((item) =>
     })
 })
 
+let selectQuantity = document.querySelector(".product-quantity select");
+let itemPrice = document.querySelector("#form-product-selection .price.large");
+selectQuantity.addEventListener('change', (e) => {
+    console.log(e.target.value);
+    itemPrice.innerHTML = 35 * e.target.value + "$";
+})
+
 document.querySelector('#fullYear').innerHTML = new Date().getFullYear();

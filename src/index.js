@@ -28,11 +28,43 @@ document.querySelectorAll(".color-option input[type='radio']").forEach((item) =>
     })
 })
 
+
+let totalPrice = document.querySelector("#total-price-all");
+let allPrices = document.querySelectorAll(".total-price-for-product");
+
+
+document.querySelectorAll("[data-product-select]").forEach((i) => {
+    i.addEventListener("change", () => {
+        const newQuantity = i.value;
+        const parent = i.closest('[data-product-info]');
+        const pricePerUnit = parent.getAttribute("data-product-price");
+        const totalPriceForProduct = pricePerUnit * newQuantity;
+        parent.querySelector(".total-price-for-product").innerHTML = totalPriceForProduct + "$";
+        totalPrice.innerHTML = +allPrices[0].innerHTML.slice(0, allPrices[0].innerHTML.length - 1) + +allPrices[1].innerText.slice(0, allPrices[1].innerHTML.length - 1)
+    })
+})
+
+let deleteBtn = document.querySelectorAll(".delete-btn");
+deleteBtn.forEach((btn) => {
+
+    btn.addEventListener("click", function () {
+        let deletedRow = btn.parentElement.parentElement;
+        let deletedPrice = deletedRow.children[deletedRow.children.length - 2].innerHTML;
+        totalPrice.innerHTML = Number(totalPrice.innerHTML) - (Number(deletedPrice.slice(0, deletedPrice.length - 1)));
+        deletedRow.remove();
+    })
+});
+
+
 let selectQuantity = document.querySelector(".product-quantity select");
 let itemPrice = document.querySelector("#form-product-selection .price.large");
 selectQuantity.addEventListener('change', (e) => {
-    console.log(e.target.value);
     itemPrice.innerHTML = 35 * e.target.value + "$";
 })
+
+
+
+
+
 
 document.querySelector('#fullYear').innerHTML = new Date().getFullYear();

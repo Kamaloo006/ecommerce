@@ -56,6 +56,55 @@ deleteBtn.forEach((btn) => {
 });
 
 
+const citiesByCountry = {
+    sa: ['الرياض', 'جدة'],
+    sy: ['دمشق', 'حلب', 'حمص'],
+    eg: ['القاهرة', 'الاسكندرية'],
+    jo: ['عمان', 'الزرقاء']
+}
+
+document.querySelectorAll("select[name='country']").forEach((item) => {
+    item.addEventListener("change", () => {
+        let country = item.value;
+        let cities = citiesByCountry[country];
+
+        document.querySelectorAll("#payment-cities option").forEach((city) => {
+            city.remove();
+        })
+
+        let firstOption = document.createElement("option");
+        firstOption.appendChild(document.createTextNode("اختر مدينة"))
+        firstOption.setAttribute("value", "");
+        firstOption.setAttribute('disabled', "true")
+        firstOption.setAttribute('selected', "true")
+        let cityOptions = document.getElementById("payment-cities")
+        cityOptions.appendChild(firstOption);
+
+        cities.forEach((c) => {
+            let newOption = document.createElement("option");
+            newOption.appendChild(document.createTextNode(c));
+            newOption.setAttribute("value", c);
+            cityOptions.appendChild(newOption)
+        })
+
+    })
+})
+
+
+document.querySelectorAll("#form-checkout input[name='payment-method']").forEach((i) => {
+    i.addEventListener("change", () => {
+        let paymentMethod = i.value;
+        let creditCardInputs = document.querySelectorAll("#credit-card-info input");
+
+        if (paymentMethod === "on_delivery") {
+            creditCardInputs.forEach((input) => input.style.display = "none")
+        }
+        else {
+            creditCardInputs.forEach((input) => input.style.display = "block")
+        }
+    })
+})
+
 let selectQuantity = document.querySelector(".product-quantity select");
 let itemPrice = document.querySelector("#form-product-selection .price.large");
 selectQuantity.addEventListener('change', (e) => {

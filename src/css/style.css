@@ -665,6 +665,16 @@ h1.custom-heading {
     color: #b9001b;
 }
 
+/* Payment page */
+.custom-input-details {
+    border-width: 2px;
+    border-radius: 3px;
+    height: 46px !important;
+    padding: 0 16px;
+    font-size: 18px;
+    width: 98%;
+}
+
 @media (max-width:1199.90px) {
     .custom-navbar .navbar-nav li a.nav-link {
         padding: 7px;

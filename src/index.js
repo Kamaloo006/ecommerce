@@ -28,7 +28,6 @@ document.querySelectorAll(".color-option input[type='radio']").forEach((item) =>
     })
 })
 
-
 let totalPrice = document.querySelector("#total-price-all");
 let allPrices = document.querySelectorAll(".total-price-for-product");
 
@@ -105,11 +104,13 @@ document.querySelectorAll("#form-checkout input[name='payment-method']").forEach
     })
 })
 
-let selectQuantity = document.querySelector(".product-quantity select");
-let itemPrice = document.querySelector("#form-product-selection .price.large");
-selectQuantity.addEventListener('change', (e) => {
-    itemPrice.innerHTML = 35 * e.target.value + "$";
-})
+
+// // selectQuantity.addEventListener('change', (e) => {
+// // })
+// selectQuantity.onchange = function () {
+
+//     itemPrice.innerHTML = 35 * e.target.value + "$";
+// }
 
 
 

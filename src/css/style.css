@@ -737,6 +737,35 @@ h1.custom-heading {
     border-color: #f8ad47 !important;
 }
 
+
+/* contact page */
+.map iframe {
+    height: 200px;
+}
+
+.contact-title {
+    font-size: 22px !important;
+}
+
+.info .info-item {
+    font-size: 15px;
+    color: #555;
+    padding: 4px 0;
+}
+
+.info .info-item .info-item-icon {
+    color: #f8ad47 !important;
+    margin-left: 2px;
+}
+
+.subscribe-title {
+    font-size: 15px;
+}
+
+.leave-msg {
+    height: 95px !important;
+}
+
 @media (max-width:1199.90px) {
     .custom-navbar .navbar-nav li a.nav-link {
         padding: 7px;

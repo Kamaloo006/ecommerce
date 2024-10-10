@@ -1,7 +1,10 @@
 window.bootstrap = require("bootstrap/dist/js/bootstrap.bundle")
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './sass/custom.scss';
 import './css/style.css';
 import '@fortawesome/fontawesome-free/js/all.min'
+import './sass/style.scss'
+
+// ^16.0.2
 
 // const tooltip = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 // const tooltpList = [...tooltip].map(tooltipTrigger => new bootstrap.Tooltip(tooltipTrigger))
@@ -103,18 +106,5 @@ document.querySelectorAll("#form-checkout input[name='payment-method']").forEach
         }
     })
 })
-
-
-// // selectQuantity.addEventListener('change', (e) => {
-// // })
-// selectQuantity.onchange = function () {
-
-//     itemPrice.innerHTML = 35 * e.target.value + "$";
-// }
-
-
-
-
-
 
 document.querySelector('#fullYear').innerHTML = new Date().getFullYear();

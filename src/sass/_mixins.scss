@@ -1,0 +1,17 @@
+@use 'sass:color';
+
+@mixin buttonStyle($color) {
+    color: $color;
+    border-color: $color;
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:active:hover {
+        color: color.adjust($color, $lightness: -25%);
+        border-color: color.adjust($color, $lightness: -25%);
+        background-color: transparent;
+    }
+}

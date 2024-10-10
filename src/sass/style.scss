@@ -1,0 +1,62 @@
+@import './variables.scss';
+@import './custom-table';
+@import './mixins';
+@import './custom_thumbnail';
+
+.custom-btn {
+    &:hover {
+        color: $brand-danger;
+        background-color: #d4d4d4;
+        border: 1px solid #8c8c8c;
+    }
+
+    &:focus {
+        color: $brand-danger;
+    }
+}
+
+.custom-btn,
+.custom-form-control {
+    border: 1px solid #ebebeb;
+    box-shadow: none;
+    border-radius: 2px;
+    color: #686868;
+    height: 38px;
+    padding: 6px 16px 7px;
+    transition: all .3s ease;
+}
+
+.custom-form-control:focus {
+    border-color: $btn-danger-dark;
+    box-shadow: 0 0 2px 0 $btn-danger-dark;
+}
+
+.custom-btn-warning {
+    color: black;
+    background-color: $brand-warning;
+    border-color: $brand-warning;
+
+    &:hover,
+    &:active,
+    &:focus:active,
+    &:active:hover {
+        background-color: $btn-warning-dark;
+        border-color: $btn-warning-dark;
+    }
+}
+
+.custom-btn-outline-warning {
+    @include buttonStyle($brand-warning)
+}
+
+.custom-btn-outline-danger {
+    @include buttonStyle($brand-danger)
+}
+
+.overlay .add-to-cart-btn {
+
+    background-color: white;
+    color: #53dcc7;
+    border: 0;
+    font-weight: 700;
+}

@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const path = require("path");
+const path = require('path');
 
 module.exports = {
     mode: 'development',
@@ -10,7 +10,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'main.js',
     },
     devServer: {
         static: {
@@ -18,46 +18,46 @@ module.exports = {
         },
         hot: false,
         port: 9000,
+        open: true,
         devMiddleware: {
             writeToDisk: true,
         }
-
     },
     module: {
         rules: [
             {
                 test: /\.html$/i,
-                loader: 'html-loader',
+                loader: "html-loader",
                 options: {
                     minimize: true,
                 },
             },
             {
-                test: /\.(sa|sc|c)ss$/i,
-                exclude: /custom.scss\.scss$/i,
-                use: [{
-
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        esModule: false,
-                    },
-                }
-
-                    , "css-loader",
+                test: /\.(sa|sc|c)ss$/,
+                exclude: /custom\.scss$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false,
+                        },
+                    }
+                    ,
+                    "css-loader",
                     "sass-loader"],
             },
             {
-                test: /custom.scss\.scss$/i,
+                test: /custom\.scss$/i,
                 use: [
                     {
-
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             esModule: false,
                         },
                     },
                     'rtlcss-loader',
-                    'sass-loader']
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -72,8 +72,8 @@ module.exports = {
                 generator: {
                     filename: "./fonts/[name][ext]"
                 }
-            }
-        ]
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -85,12 +85,12 @@ module.exports = {
             template: "./src/product.html"
         }),
         new HtmlWebpackPlugin({
-            filename: "checkout.html",
-            template: "./src/checkout.html"
-        }),
-        new HtmlWebpackPlugin({
             filename: "payment.html",
             template: "./src/payment.html"
+        }),
+        new HtmlWebpackPlugin({
+            filename: "checkout.html",
+            template: "./src/checkout.html"
         }),
         new HtmlWebpackPlugin({
             filename: "search.html",
